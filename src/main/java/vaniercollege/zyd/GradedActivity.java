@@ -5,7 +5,7 @@ package vaniercollege.zyd;
  * 2025/08/29
  * https://github.com/Cloumy074/Lab01_F25_StudentManage.git
  */
-public abstract class GradedActivity {
+public class GradedActivity {
     private double score;
 
     public double getScore() {
@@ -29,6 +29,4 @@ public abstract class GradedActivity {
             return 'F';
         }
     }
-
-    public abstract void setScore(double grammar, double spelling, double correctLength, double content);
 }
