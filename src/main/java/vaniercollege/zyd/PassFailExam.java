@@ -9,11 +9,12 @@ public class PassFailExam extends PassFailActivity {
     private double pointsEach;
     private int numMissed;
 
-    public PassFailExam(double minPassingScore, int numQuestions, double pointsEach, int numMissed) {
+    public PassFailExam(int numQuestions, int numMissed, double minPassingScore ) {
         super(minPassingScore);
         this.numQuestions = numQuestions;
-        this.pointsEach = pointsEach;
+        this.pointsEach = 100.00 /  numQuestions;
         this.numMissed = numMissed;
+        super.setScore(100.00 - numMissed *  this.pointsEach);
     }
 
     public double getPointsEach() {
@@ -22,5 +23,10 @@ public class PassFailExam extends PassFailActivity {
 
     public int getNumMissed() {
         return numMissed;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Each question counts %.1f points.\nThe exam score is %.1f\nThe exam grade is %c", this.getPointsEach(), this.getScore(), this.getGrade());
     }
 }
